@@ -16,3 +16,5 @@ def save():
 @app.route('/wjadmin', methods=['POST'])
 def admin():
     return saved_data
+if __name__ == '__main__':
+    app.run()
