@@ -16,4 +16,4 @@ def save():
 @app.route('/wjadmin', methods=['POST'])
 def admin():
     return saved_data
-app.run()
+
