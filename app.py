@@ -13,7 +13,7 @@ def save():
     saved_data.append({'ip':saved_dataip,'time':saved_datatime})
     return 'ok'
 
-@app.route('/wjadmin', methods=['POST'])
+@app.route('/wjadmin')
 def admin():
     return saved_data
 
