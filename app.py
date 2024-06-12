@@ -1,7 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/")
-def index():
-    return render_template('./index.html')
+saved_data = []
+
+@app.route('/', methods=['POST'])
+def save():
+    saved_dataip = request.get_json()['ip']   
+    saved_datatime = request.get_json()['time']
+    saved_data.append({'ip':saved_dataip,'time':saved_datatime})
+    return 'ok'
+
+@app.route('/wjadmin', methods=['POST'])
+def admin():
+    return saved_data
