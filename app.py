@@ -1,20 +1,9 @@
-from flask import Flask, request
-from flask_cors import CORS
-
+from flask import Flask
 app = Flask(__name__)
-CORS(app)
 
-saved_data = []
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
 
-@app.route('/', methods=['POST'])
-def save():
-    saved_dataip = request.get_json()['ip']   
-    saved_datatime = request.get_json()['time']
-    saved_data.append({'ip':saved_dataip,'time':saved_datatime})
-    return 'ok'
-
-@app.route('/wjadmin', methods=['POST'])
-def admin():
-    return saved_data
 if __name__ == '__main__':
     app.run()
