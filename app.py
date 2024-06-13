@@ -9,11 +9,10 @@ saved_data = []
 @app.route('/', methods=['POST'])
 def save():
     saved_dataip = request.get_json()['ip']   
-    saved_datatime = request.get_json()['time']
+    saved_datatime = request.get_json()['date']
     saved_data.append({'ip':saved_dataip,'time':saved_datatime})
     return 'ok'
 
 @app.route('/wjadmin')
 def admin():
     return saved_data
-
