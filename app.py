@@ -16,3 +16,7 @@ def save():
 @app.route('/wjadmin')
 def admin():
     return saved_data
+@app.route('/deleteallip')
+def deleteallip():
+    saved_data = []
+    return 'del'
